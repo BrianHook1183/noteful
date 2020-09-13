@@ -14,18 +14,17 @@ class App extends React.Component {
       <div className='App'>
         <header>
           <h1><Link to='/'>Noteful</Link></h1>
-          <nav>
-            <Link to='/folder/folder-id'>folder</Link>
-            <br />
-            <Link to='/note/note-id'>note</Link>
-          </nav>
+          <div>
+            <Link to='/folder/folder-id'>folder -</Link>
+            <Link to='/note/note-id'>- note</Link>
+          </div>
         </header>
         <div className="container">
-          <sidebar>
+          <nav>
             <Route exact path='/' component={HomeSidebar}/>
             <Route path='/folder/:folder-id' component={FolderSidebar}/>
             <Route path='/note/:note-id' component={NoteSidebar}/>          
-          </sidebar>
+          </nav>
           <main>
             <Route exact path='/' component={HomeMain}/>
             <Route path='/folder/:folder-id' component={FolderMain}/>

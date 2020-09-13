@@ -3,7 +3,7 @@
 }
 
 header {
-  display: flex;
+  text-align: center;
 }
 
 .container {
@@ -19,4 +19,9 @@ sidebar {
 main {
   width: 70%;
   border: 1px solid red;
+}
+
+.folder {
+  margin: 1px;
+  border: 1px solid black;
 }
