@@ -1,0 +1,22 @@
+.App {
+  margin: 4px;
+}
+
+header {
+  display: flex;
+}
+
+.container {
+  display: flex;
+}
+
+sidebar {
+  width: 30%;
+  border: 1px solid black;
+  margin-right: 2px;
+}
+
+main {
+  width: 70%;
+  border: 1px solid red;
+}
