@@ -12,8 +12,9 @@ class HomeSidebar extends React.Component {
       )
     });
   return (
-    <div>
+    <div className="HomeSidebar">
       {folders}
+      <p>add Folder button</p>
     </div>
     );
   }
