@@ -1,9 +1,20 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import dummyStore from './dummy-store';
 
 class FolderSidebar extends React.Component {
   render() {
-    return (
-      <p>Folder Sidebar</p>
+    const folders = dummyStore.folders.map(folder => {
+      return (
+        <NavLink to={`/folder/${folder.id}`}>
+          <div className="folder" key={folder.id}>{folder.name}</div>
+        </NavLink>
+      )
+    });
+  return (
+    <div>
+      {folders}
+    </div>
     );
   }
 }
