@@ -10,7 +10,7 @@ header {
   display: flex;
 }
 
-sidebar {
+nav {
   width: 30%;
   border: 1px solid black;
   margin-right: 2px;
@@ -22,6 +22,11 @@ main {
 }
 
 .folder {
+  margin: 1px;
+  border: 1px solid black;
+}
+
+.note {
   margin: 1px;
   border: 1px solid black;
 }
