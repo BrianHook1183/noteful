@@ -15,20 +15,20 @@ class App extends React.Component {
         <header>
           <h1><Link to='/'>Noteful</Link></h1>
           <div>
-            <Link to='/folder/folder-id'>folder -</Link>
-            <Link to='/note/note-id'>- note</Link>
+            <Link to='/folder/:folderId'>folder -</Link>
+            <Link to='/note/:noteId'>- note</Link>
           </div>
         </header>
         <div className="container">
           <nav>
             <Route exact path='/' component={HomeSidebar}/>
-            <Route path='/folder/:folder-id' component={FolderSidebar}/>
-            <Route path='/note/:note-id' component={NoteSidebar}/>          
+            <Route path='/folder/:folderId' component={FolderSidebar}/>
+            <Route path='/note/:noteId' component={NoteSidebar}/>          
           </nav>
           <main>
             <Route exact path='/' component={HomeMain}/>
-            <Route path='/folder/:folder-id' component={FolderMain}/>
-            <Route path='/note/:note-id' component={NoteMain}/>
+            <Route path='/folder/:folderId' component={FolderMain}/>
+            <Route path='/note/:noteId' component={NoteMain}/>
           </main>
         </div>
     </div>
