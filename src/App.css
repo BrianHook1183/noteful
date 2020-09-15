@@ -1,5 +1,6 @@
 .App {
   margin: 4px;
+  max-width: 900px;
 }
 
 header {
