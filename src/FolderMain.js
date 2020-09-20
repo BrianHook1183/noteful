@@ -12,9 +12,7 @@ class FolderMain extends React.Component {
 
   render() {
     const { folderId } = this.props.match.params;
-        console.log('props are: ',folderId);
     const folderIdNotes = this.context.notes.filter(note => note.folderId === folderId);
-        console.log('folderIdNotes are: ',folderIdNotes);
     const notes = folderIdNotes.map(note => {
       return (
         <Note

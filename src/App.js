@@ -66,10 +66,6 @@ class App extends React.Component {
         <div className='App'>
           <header>
             <h1><Link to='/'>Noteful</Link></h1>
-            <div>
-              <Link to='/folder/:folderId'>folder -</Link>
-              <Link to='/note/:noteId'>- note</Link>
-            </div>
           </header>
           <div className="container">
             <nav>
