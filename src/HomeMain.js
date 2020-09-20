@@ -18,6 +18,7 @@ class HomeMain extends React.Component {
     });
   return (
     <>
+      <button>add note</button>
       {notes}
     </>
     );

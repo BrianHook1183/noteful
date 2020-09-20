@@ -4,7 +4,7 @@ class NoteSidebar extends React.Component {
   render() {
     return (
       <div className="NoteSidebar">
-        <p>back button</p>
+        <button>Back</button>
         <p>Shows only the name of the active folder</p>
       </div>
     );
