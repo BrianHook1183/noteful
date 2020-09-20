@@ -3,8 +3,7 @@ import { Route, Link } from 'react-router-dom';
 import HomeMain from './HomeMain';
 import FolderMain from './FolderMain';
 import NoteMain from './NoteMain';
-import HomeSidebar from './HomeSidebar';
-import FolderSidebar from './FolderSidebar';
+import ListSidebar from './ListSidebar';
 import NoteSidebar from './NoteSidebar';
 import ApiContext from './ApiContext';
 import './App.css';
@@ -69,8 +68,8 @@ class App extends React.Component {
           </header>
           <div className="container">
             <nav>
-              <Route exact path='/' component={HomeSidebar}/>
-              <Route path='/folder/:folderId' component={FolderSidebar}/>
+              <Route exact path='/' component={ListSidebar}/>
+              <Route path='/folder/:folderId' component={ListSidebar}/>
               <Route path='/note/:noteId' component={NoteSidebar}/>          
             </nav>
             <main>

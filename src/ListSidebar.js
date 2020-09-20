@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import ApiContext from './ApiContext';
 
-class HomeSidebar extends React.Component {
+class FolderSidebar extends React.Component {
   static contextType = ApiContext;
 
   render() {
@@ -14,7 +14,7 @@ class HomeSidebar extends React.Component {
       )
     });
   return (
-    <div className="HomeSidebar">
+    <div className="FolderSidebar">
       {folders}
       <p>add Folder button</p>
     </div>
@@ -22,4 +22,4 @@ class HomeSidebar extends React.Component {
   }
 }
 
-export default HomeSidebar;
+export default FolderSidebar;
