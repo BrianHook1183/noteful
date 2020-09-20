@@ -18,8 +18,6 @@ class App extends React.Component {
   componentDidMount() {
       fetch('http://localhost:9090/folders')
           .then(response => {
-              // check if response is ok
-              console.log('About to check for errors');
               if(!response.ok) {
               console.log('An error did occur, let\'s throw an error.');
               throw new Error('Something went wrong'); // throw an error
@@ -36,8 +34,6 @@ class App extends React.Component {
 
       fetch('http://localhost:9090/notes')
           .then(response => {
-              // check if response is ok
-              console.log('About to check for errors');
               if(!response.ok) {
               console.log('An error did occur, let\'s throw an error.');
               throw new Error('Something went wrong'); // throw an error

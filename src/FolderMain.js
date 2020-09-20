@@ -1,17 +1,28 @@
 import React from'react';
 import ApiContext from './ApiContext';
+import Note from './Note';
 
 class FolderMain extends React.Component {
+  static defaultProps = {
+    match: {
+      params: {}
+    }
+  }
   static contextType = ApiContext;
 
   render() {
-    const notes = this.context.notes.map(note => {
+    const { folderId } = this.props.match.params;
+        console.log('props are: ',folderId);
+    const folderIdNotes = this.context.notes.filter(note => note.folderId === folderId);
+        console.log('folderIdNotes are: ',folderIdNotes);
+    const notes = folderIdNotes.map(note => {
       return (
-        <div className="note" key={note.id}>
-          <h3>{note.name}</h3>
-          <p>folder: {note.folderId}</p>
-          <p>Date modified on {note.modified}</p>
-        </div>
+        <Note
+          key={note.id}
+          id={note.id}
+          name={note.name}
+          modified={note.modified}
+        />
       )
     });
   return (
