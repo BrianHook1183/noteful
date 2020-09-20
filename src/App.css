@@ -31,3 +31,12 @@ main {
   margin: 1px;
   border: 1px solid black;
 }
+
+.Note-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Note button {
+  color: red;
+}

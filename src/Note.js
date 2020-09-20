@@ -6,11 +6,14 @@ class Note extends React.Component {
     const { name, id, modified } = this.props;
     return ( 
       <div className='Note'>
-        <h2 className='Note__title'>
-          <Link to={`/note/${id}`}>
-            {name}
-          </Link>
-        </h2>
+        <div className='Note-header'>
+          <h2 className='Note-title'>
+            <Link to={`/note/${id}`}>
+              {name}
+            </Link>
+          </h2>
+          <button>Delete</button>
+        </div>
         <span className='Date'>
           Modified {modified}
         </span>

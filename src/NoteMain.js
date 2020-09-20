@@ -16,8 +16,6 @@ class NoteMain extends React.Component {
     const findNote = (notes=[], noteId) =>
       notes.find(note => note.id === noteId);
     const note = findNote(notes, noteId) || { content: '' };
-    console.log(note);
-
 
     return (
       <section className='NoteMain'>
