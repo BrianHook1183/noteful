@@ -1,10 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import dummyStore from './dummy-store';
+import ApiContext from './ApiContext';
 
 class HomeSidebar extends React.Component {
+  static contextType = ApiContext;
+
   render() {
-    const folders = dummyStore.folders.map(folder => {
+    const folders = this.context.folders.map(folder => {
       return (
         <NavLink to={`/folder/${folder.id}`} key={folder.id}>
           <div className="folder" key={folder.id}>{folder.name}</div>

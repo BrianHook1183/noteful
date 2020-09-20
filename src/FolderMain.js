@@ -1,9 +1,11 @@
 import React from'react';
-import dummyStore from './dummy-store';
+import ApiContext from './ApiContext';
 
 class FolderMain extends React.Component {
+  static contextType = ApiContext;
+
   render() {
-    const notes = dummyStore.notes.map(note => {
+    const notes = this.context.notes.map(note => {
       return (
         <div className="note" key={note.id}>
           <h3>{note.name}</h3>
