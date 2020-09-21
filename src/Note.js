@@ -3,16 +3,33 @@ import { Link } from 'react-router-dom';
 import ApiContext from './ApiContext';
 
 class Note extends React.Component {
-  static defaultProps ={
-    onDeleteNote: () => {},
-  }
+  // static defaultProps ={
+  //   onDeleteNote: () => {},
+  // }
   static contextType = ApiContext;
 
   handleDeleteClick = event => {
     event.preventDefault()
     const noteId = this.props.id;
-    console.log('delete was clicked and noteId is: ', noteId);
-
+    fetch(`http://localhost:9090/notes/${noteId}`, {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json'
+      },
+    })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(event => Promise.reject(event))
+        return res.json()
+      })
+      .then(() => {
+        this.context.deleteNote(noteId);
+        // allow parent to perform extra behaviour
+        // this.props.onDeleteNote(noteId)
+      })
+      .catch(error => {
+        console.error({ error })
+      })
   }
 
   render() { 
