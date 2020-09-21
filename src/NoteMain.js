@@ -10,6 +10,10 @@ class NoteMain extends React.Component {
   }
   static contextType = ApiContext;
 
+  handleDeleteNote = noteId => {
+    this.props.history.push(`/`)
+  }
+
   render() {
     const { noteId } = this.props.match.params;
     const { notes=[] } = this.context;
@@ -23,6 +27,7 @@ class NoteMain extends React.Component {
           id={note.id}
           name={note.name}
           modified={note.modified}
+          onDeleteNote={this.handleDeleteNote}
         />
         <div className='NoteMain-content'>
           {note.content}

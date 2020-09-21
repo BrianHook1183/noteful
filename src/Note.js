@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import ApiContext from './ApiContext';
 
 class Note extends React.Component {
-  // static defaultProps ={
-  //   onDeleteNote: () => {},
-  // }
+  static defaultProps ={
+    onDeleteNote: () => {},
+  }
   static contextType = ApiContext;
 
   handleDeleteClick = event => {
@@ -23,9 +23,9 @@ class Note extends React.Component {
         return res.json()
       })
       .then(() => {
-        this.context.deleteNote(noteId);
+        this.context.deleteNote(noteId)
         // allow parent to perform extra behaviour
-        // this.props.onDeleteNote(noteId)
+        this.props.onDeleteNote(noteId)
       })
       .catch(error => {
         console.error({ error })
