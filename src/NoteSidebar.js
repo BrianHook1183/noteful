@@ -3,6 +3,9 @@ import ApiContext from './ApiContext';
 
 class NoteSidebar extends React.Component {
   static defaultProps = {
+    history: {
+      goBack: () => { }
+    },
     match: {
       params: {}
     }
@@ -23,7 +26,7 @@ class NoteSidebar extends React.Component {
 
     return (
       <div className="NoteSidebar">
-        <button>Back</button>
+        <button onClick={() => this.props.history.goBack()} >Back</button>
         {/* {folder && (<h3>{folder.name}</h3>)} */}
         {/*  optional chaining */}
         <h3>{folder?.name}</h3>
