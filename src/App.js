@@ -5,6 +5,8 @@ import FolderMain from './FolderMain';
 import NoteMain from './NoteMain';
 import ListSidebar from './ListSidebar';
 import NoteSidebar from './NoteSidebar';
+import AddFolder from './AddFolder';
+import AddNote from './AddNote';
 import ApiContext from './ApiContext';
 import './App.css';
 
@@ -76,6 +78,8 @@ class App extends React.Component {
               <Route exact path='/' component={HomeMain}/>
               <Route path='/folder/:folderId' component={FolderMain}/>
               <Route path='/note/:noteId' component={NoteMain}/>
+              <Route path='/add-folder' component={AddFolder}/>
+              <Route path='/add-note' component={AddNote}/>
             </main>
           </div>
         </div>

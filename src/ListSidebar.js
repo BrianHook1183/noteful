@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+
+import { NavLink, Link } from 'react-router-dom';
 import ApiContext from './ApiContext';
 
 class FolderSidebar extends React.Component {
@@ -16,7 +17,11 @@ class FolderSidebar extends React.Component {
   return (
     <div className="FolderSidebar">
       {folders}
-      <button>add folder</button>
+      <br />
+      <Link to='/add-folder' className='add-folder-button'>
+        + folder
+      </Link>
+
     </div>
     );
   }

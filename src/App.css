@@ -21,6 +21,12 @@ nav {
   font-weight: bold;
 }
 
+.add-folder-button {
+  text-decoration: none;
+  background-color: lightblue;
+  padding-right: 8px;
+}
+
 main {
   width: 70%;
   border: 1px solid red;
