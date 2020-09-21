@@ -56,10 +56,20 @@ class App extends React.Component {
       });
   };
 
+  handleAddFolder = folder => {
+    this.setState({
+      folders: [
+        ...this.state.folders,
+        folder
+      ]
+    })
+  }
+
   render() {
     const values = {
       notes: this.state.notes,
       folders: this.state.folders,
+      addFolder: this.handleAddFolder,
       deleteNote: this.handleDeleteNote,
     }    
     return (
@@ -67,6 +77,7 @@ class App extends React.Component {
         <div className='App'>
           <header>
             <h1><Link to='/'>Noteful</Link></h1>
+            <Link to='/add-note' className='add-button'>+ note</Link>
           </header>
           <div className="container">
             <nav>

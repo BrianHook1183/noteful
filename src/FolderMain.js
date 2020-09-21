@@ -25,7 +25,6 @@ class FolderMain extends React.Component {
     });
   return (
     <>
-      <button>add note</button>
       {notes}
     </>
     );

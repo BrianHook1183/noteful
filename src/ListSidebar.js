@@ -18,7 +18,7 @@ class FolderSidebar extends React.Component {
     <div className="FolderSidebar">
       {folders}
       <br />
-      <Link to='/add-folder' className='add-folder-button'>
+      <Link to='/add-folder' className='add-button'>
         + folder
       </Link>
 
