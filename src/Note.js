@@ -1,7 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ApiContext from './ApiContext';
 
 class Note extends React.Component {
+  static defaultProps ={
+    onDeleteNote: () => {},
+  }
+  static contextType = ApiContext;
+
+  handleDeleteClick = event => {
+    event.preventDefault()
+    const noteId = this.props.id;
+    console.log('delete was clicked and noteId is: ', noteId);
+
+  }
+
   render() { 
     const { name, id, modified } = this.props;
     return ( 
@@ -12,7 +25,7 @@ class Note extends React.Component {
               {name}
             </Link>
           </h2>
-          <button>Delete</button>
+          <button onClick={this.handleDeleteClick} >Delete</button>
         </div>
         <span className='Date'>
           Modified {modified}
