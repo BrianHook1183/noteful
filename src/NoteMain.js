@@ -18,6 +18,7 @@ class NoteMain extends React.Component {
     const { noteId } = this.props.match.params;
     const { notes=[] } = this.context;
     const findNote = (notes=[], noteId) =>
+    // should be === but couldn't resolve a strong / number mismatch
       notes.find(note => note.id == noteId);
     const note = findNote(notes, noteId) || { content: '' };
     return (

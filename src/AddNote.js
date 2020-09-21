@@ -1,6 +1,6 @@
 import React from 'react';
 import ApiContext from './ApiContext';
-import NotefulForm from './NotefulForm';
+
 
 export default class AddNote extends React.Component {
   static defaultProps = {
@@ -46,15 +46,17 @@ export default class AddNote extends React.Component {
     return (
       <section className='AddNote'>
         <h2>Add new note</h2>
-        <NotefulForm onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
             <label htmlFor='note-name-input'>
               Name
             </label>
             <input type='text' id='note-name-input' name='note-name' />
+            <br />
             <label htmlFor='note-content-input'>
               Content
             </label>
             <textarea id='note-content-input' name='note-content' />
+            <br />
             <label htmlFor='note-folder-select'>
               Folder
             </label>
@@ -66,8 +68,9 @@ export default class AddNote extends React.Component {
                 </option>
               )}
             </select>
-            <input type='submit' />
-        </NotefulForm>
+            <br />
+            <input type='submit' className='submit' />
+        </form>
       </section>
     )
   }

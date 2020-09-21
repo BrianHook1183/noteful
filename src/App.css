@@ -50,3 +50,14 @@ main {
 .Note button {
   color: red;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.submit {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
