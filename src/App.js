@@ -65,11 +65,21 @@ class App extends React.Component {
     })
   }
 
+  handleAddNote = note => {
+    this.setState({
+      notes: [
+        ...this.state.notes,
+        note
+      ]
+    })
+  }
+
   render() {
     const values = {
       notes: this.state.notes,
       folders: this.state.folders,
       addFolder: this.handleAddFolder,
+      addNote: this.handleAddNote,
       deleteNote: this.handleDeleteNote,
     }    
     return (

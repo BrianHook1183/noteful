@@ -18,9 +18,8 @@ class NoteMain extends React.Component {
     const { noteId } = this.props.match.params;
     const { notes=[] } = this.context;
     const findNote = (notes=[], noteId) =>
-      notes.find(note => note.id === noteId);
+      notes.find(note => note.id == noteId);
     const note = findNote(notes, noteId) || { content: '' };
-
     return (
       <section className='NoteMain'>
         <Note

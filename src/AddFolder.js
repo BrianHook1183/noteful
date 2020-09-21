@@ -1,5 +1,6 @@
 import React from 'react';
 import ApiContext from './ApiContext';
+import NotefulForm from './NotefulForm';
 
 class AddFolder extends React.Component {
   static defaultProps = {
@@ -39,13 +40,13 @@ class AddFolder extends React.Component {
     return (
       <section className='AddFolder'>
         <h2>Add new folder</h2>
-        <form onSubmit={this.handleSubmit}>
+        <NotefulForm onSubmit={this.handleSubmit}>
           <label htmlFor='folder-name-input'>
             Name
             <input type='text' id='folder-name-input' name='folder-name' />
           </label>
           <input type="submit" />
-        </form>
+        </NotefulForm>
       </section>
     )
   }
