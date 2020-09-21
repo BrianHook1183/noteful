@@ -1,5 +1,6 @@
 import React from 'react';
 import ApiContext from './ApiContext';
+import ValidationError from './ValidationError';
 
 class AddFolder extends React.Component {
   static defaultProps = {
@@ -9,10 +10,31 @@ class AddFolder extends React.Component {
   }
   static contextType = ApiContext;
 
+  state = {
+    folderName: '',
+    touched: false
+  }
+
+  updateName(name) {
+    this.setState({
+      folderName: name,
+      touched: true
+    });
+  }
+
+  validateName() {
+    const nameTrimmed = this.state.folderName.trim();
+    if (nameTrimmed.length === 0) {
+      return '*Folder name is required';
+    } else if (nameTrimmed.length < 3) {
+      return '*Name must be at least 3 characters long';
+    }
+  }
+
   handleSubmit = e => {
     e.preventDefault()
     const folder = {
-      name: e.target['folder-name-input'].value
+      name: this.state.folderName
     }
     fetch('http://localhost:9090/folders', {
       method: 'POST',
@@ -42,10 +64,18 @@ class AddFolder extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label htmlFor='folder-name-input'>
             Name
-            <input type='text' id='folder-name-input' name='folder-name' />
+            <input 
+              type='text' 
+              id='folder-name-input' 
+              name='folder-name' 
+              onChange={e => this.updateName(e.target.value)}
+            />
+            {this.state.touched && (
+              <ValidationError message={this.validateName()} />
+            )}
           </label>
           <br />
-          <input type="submit"  className='submit'/>
+          <input type="submit"  className='submit' disabled={this.validateName()} />
         </form>
       </section>
     )
