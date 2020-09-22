@@ -26,6 +26,7 @@ nav {
 
 .folder {
   margin-bottom: 12px;
+  word-wrap: break-word;
 }
 
 .active {
