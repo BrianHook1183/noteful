@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ApiContext from './ApiContext';
+import PropTypes from 'prop-types';
 
 class Note extends React.Component {
   static defaultProps ={
@@ -10,7 +11,7 @@ class Note extends React.Component {
 
   handleDeleteClick = event => {
     event.preventDefault()
-    const noteId = this.props.id;
+    const noteId = this.props.id; 
     fetch(`http://localhost:9090/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
@@ -50,6 +51,14 @@ class Note extends React.Component {
       </div>
      );
   }
+
 }
- 
+
+Note.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  modified: PropTypes.string.isRequired,
+  onDeleteNote: PropTypes.func
+};
+
 export default Note;
