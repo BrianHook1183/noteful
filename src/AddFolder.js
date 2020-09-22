@@ -11,7 +11,7 @@ class AddFolder extends React.Component {
   static contextType = ApiContext;
 
   state = {
-    folderName: '',
+    folderName: "",
     touched: false
   }
 

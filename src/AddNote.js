@@ -10,15 +10,41 @@ export default class AddNote extends React.Component {
   }
   static contextType = ApiContext;
 
+  state = {
+    noteName: {
+      value: "",
+      touched: false
+    },
+    noteContent: {
+      value: "",
+      touched: false
+    },
+    noteFolderId: {
+      value: "",
+      touched: false
+    }
+  }
+
+  updateName(name) {
+    this.setState({noteName: {value: name , touched: true}})
+  }
+
+  updateContent(content) {
+    this.setState({noteContent: {value: content , touched: true}})
+  }
+
+  updateFolder(folder) {
+    this.setState({noteFolderId: {value: folder , touched: true}})
+  }
+
   handleSubmit = e => {
     e.preventDefault()
     const newNote = {
-      name: e.target['note-name'].value,
-      content: e.target['note-content'].value,
-      folderId: e.target['note-folder-id'].value,
+      name: this.state.noteName.value,
+      content: this.state.noteContent.value,
+      folderId: this.state.noteFolderId.value,
       modified: new Date(),
     }
-    console.log('content is: ', newNote.content);
     fetch(`http://localhost:9090/notes`, {
       method: 'POST',
       headers: {
@@ -33,7 +59,6 @@ export default class AddNote extends React.Component {
       })
       .then(note => {
         this.context.addNote(note)
-        console.log(note)
         this.props.history.push(`/folder/${note.folderId}`)
       })
       .catch(error => {
@@ -50,17 +75,30 @@ export default class AddNote extends React.Component {
             <label htmlFor='note-name-input'>
               Name
             </label>
-            <input type='text' id='note-name-input' name='note-name' />
+            <input 
+              type='text' 
+              id='note-name-input' 
+              name='note-name' 
+              onChange={e => this.updateName(e.target.value)} 
+            />
             <br />
             <label htmlFor='note-content-input'>
               Content
             </label>
-            <textarea id='note-content-input' name='note-content' />
+            <textarea 
+              id='note-content-input' 
+              name='note-content' 
+              onChange={e => this.updateContent(e.target.value)}
+            />
             <br />
             <label htmlFor='note-folder-select'>
               Folder
             </label>
-            <select id='note-folder-select' name='note-folder-id'>
+            <select 
+              id='note-folder-select' 
+              name='note-folder-id' 
+              onChange={e => this.updateFolder(e.target.value)}
+            >
               <option value={null}>...</option>
               {folders.map(folder =>
                 <option key={folder.id} value={folder.id}>
@@ -69,7 +107,11 @@ export default class AddNote extends React.Component {
               )}
             </select>
             <br />
-            <input type='submit' className='submit' />
+            <input 
+              type='submit' 
+              className='submit' 
+              disable="true" 
+            />
         </form>
       </section>
     )

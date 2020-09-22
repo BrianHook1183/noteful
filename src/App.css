@@ -5,6 +5,7 @@
 
 header {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .container {
@@ -13,8 +14,18 @@ header {
 
 nav {
   width: 30%;
-  border: 1px solid black;
-  margin-right: 2px;
+}
+
+.ListSidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(238, 237, 237);
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.folder {
+  margin-bottom: 12px;
 }
 
 .active {
@@ -29,17 +40,13 @@ nav {
 
 main {
   width: 70%;
-  border: 1px solid red;
-}
-
-.folder {
-  margin: 1px;
-  border: 1px solid black;
+  /* border: 1px solid red; */
 }
 
 .Note {
-  margin: 1px;
+  margin-bottom: 5px;
   border: 1px solid black;
+  padding: 4px;
 }
 
 .Note-header {
@@ -49,6 +56,11 @@ main {
 
 .Note button {
   color: red;
+}
+
+.AddNote, .AddFolder {
+  background-color: rgb(223, 223, 223);
+  padding: 10px;
 }
 
 form {
