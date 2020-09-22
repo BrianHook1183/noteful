@@ -1,5 +1,6 @@
 import React from 'react';
 import ApiContext from './ApiContext';
+import ValidationError from './ValidationError';
 
 
 export default class AddNote extends React.Component {
@@ -35,6 +36,30 @@ export default class AddNote extends React.Component {
 
   updateFolder(folder) {
     this.setState({noteFolderId: {value: folder , touched: true}})
+  }
+
+  validateName() {
+    const nameTrimmed = this.state.noteName.value.trim();
+    if (nameTrimmed.length === 0) {
+      return '*Note name is required';
+    } else if (nameTrimmed.length < 3) {
+      return '*Name must be at least 3 characters long';
+    }
+  }
+
+  validateContent() {
+    const contentTrimmed = this.state.noteContent.value.trim();
+    if (contentTrimmed.length === 0) {
+      return '*Note content is required';
+    } else if (contentTrimmed.length < 3) {
+      return '*Note must be at least 3 characters long';
+    }
+  }
+
+  validateFolder() {
+    if (this.state.noteFolderId.value.length === 0) {
+      return '*Must select a folder';
+    }
   }
 
   handleSubmit = e => {
@@ -81,6 +106,9 @@ export default class AddNote extends React.Component {
               name='note-name' 
               onChange={e => this.updateName(e.target.value)} 
             />
+            {this.state.noteName.touched && (
+              <ValidationError message={this.validateName()} />
+            )}
             <br />
             <label htmlFor='note-content-input'>
               Content
@@ -90,6 +118,9 @@ export default class AddNote extends React.Component {
               name='note-content' 
               onChange={e => this.updateContent(e.target.value)}
             />
+            {this.state.noteContent.touched && (
+              <ValidationError message={this.validateContent()} />
+            )}
             <br />
             <label htmlFor='note-folder-select'>
               Folder
@@ -106,11 +137,14 @@ export default class AddNote extends React.Component {
                 </option>
               )}
             </select>
+            {this.state.noteFolderId.touched && (
+              <ValidationError message={this.validateFolder()} />
+            )}
             <br />
             <input 
               type='submit' 
               className='submit' 
-              disable="true" 
+              disabled={this.validateName() || this.validateFolder() || this.validateContent()} 
             />
         </form>
       </section>

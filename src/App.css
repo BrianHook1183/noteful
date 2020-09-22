@@ -73,6 +73,10 @@ form {
   color: white;
   font-weight: bold;
 }
+.submit:disabled {
+  background-color: grey;
+  color: lightgrey;
+}
 
 .error {
   color:red;
