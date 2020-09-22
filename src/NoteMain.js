@@ -18,8 +18,12 @@ class NoteMain extends React.Component {
     const { noteId } = this.props.match.params;
     const { notes=[] } = this.context;
     const findNote = (notes=[], noteId) =>
-    // should be === but couldn't resolve a strong / number mismatch
-      notes.find(note => note.id == noteId);
+    notes.find(note => {
+      // === isn't happening now, why? problem was with new note created, thought id was a number, like 1,2,3, but now it is a
+      console.log('note.id ', note.id , 'noteId', noteId)
+      // use to be having a string / number mismatch with === but now seems to be fine
+        return note.id === noteId
+      });
     const note = findNote(notes, noteId) || { content: '' };
     return (
       <section className='NoteMain'>
