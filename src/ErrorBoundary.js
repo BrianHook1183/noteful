@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ApiError extends React.Component {
+class ErrorBoundary extends React.Component {
   state = { 
     hasError: false
   }
@@ -11,12 +11,10 @@ class ApiError extends React.Component {
 
   render() {
     if (this.state.hasError) {      
-      return (
-        <h2>There was an error with the API.</h2>
-      );
+      return console.log('ErrorBoundary ran') (<h2>There was an error with a child component.</h2>);
     }
     return this.props.children;
   }  
 }
  
-export default ApiError;
+export default ErrorBoundary;

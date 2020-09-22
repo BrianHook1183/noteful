@@ -27,6 +27,7 @@ class NoteSidebar extends React.Component {
     return (
       <div className="NoteSidebar">
         <button onClick={() => this.props.history.goBack()} >Back</button>
+        <p><i>current folder:</i></p>
         {/* {folder && (<h3>{folder.name}</h3>)} */}
         {/*  optional chaining */}
         <h3>{folder?.name}</h3>
