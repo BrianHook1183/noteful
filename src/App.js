@@ -8,6 +8,7 @@ import NoteSidebar from './NoteSidebar';
 import AddFolder from './AddFolder';
 import AddNote from './AddNote';
 import ApiContext from './ApiContext';
+import ErrorBoundary from './ErrorBoundary';
 import './App.css';
 
 class App extends React.Component {
@@ -97,7 +98,9 @@ class App extends React.Component {
             </nav>
             <main>
               <Route exact path='/' component={HomeMain}/>
-              <Route path='/folder/:folderId' component={FolderMain}/>
+              <ErrorBoundary>
+                <Route path='/folder/:folderId' component={FolderMain}/>
+              </ErrorBoundary>
               <Route path='/note/:noteId' component={NoteMain}/>
               <Route path='/add-folder' component={AddFolder}/>
               <Route path='/add-note' component={AddNote}/>

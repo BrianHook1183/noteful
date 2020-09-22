@@ -1,6 +1,7 @@
 import React from 'react';
 import ApiContext from './ApiContext';
 import Note from './Note';
+import ErrorBoundary from './ErrorBoundary';
 
 class NoteMain extends React.Component {
   static defaultProps = {
@@ -20,19 +21,21 @@ class NoteMain extends React.Component {
     const findNote = (notes=[], noteId) =>
     notes.find(note => {
       // === isn't happening now, why? problem was with new note created, thought id was a number, like 1,2,3, but now it is a
-      console.log('note.id ', note.id , 'noteId', noteId)
+      // console.log('note.id ', note.id , 'noteId', noteId)
       // use to be having a string / number mismatch with === but now seems to be fine
         return note.id === noteId
       });
     const note = findNote(notes, noteId) || { content: '' };
     return (
       <section className='NoteMain'>
-        <Note
-          id={note.id}
-          name={note.name}
-          modified={note.modified}
-          onDeleteNote={this.handleDeleteNote}
-        />
+        <ErrorBoundary key={note.id}>
+          <Note
+            id={note.id}
+            name={note.name}
+            modified={note.modified}
+            onDeleteNote={this.handleDeleteNote}
+          />
+        </ErrorBoundary>
         <div className='NoteMain-content'>
           {note.content}
         </div>

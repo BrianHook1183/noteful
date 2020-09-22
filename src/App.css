@@ -19,9 +19,12 @@ nav {
 .ListSidebar {
   display: flex;
   flex-direction: column;
-  background-color: rgb(238, 237, 237);
   margin-left: 10px;
-  padding-left: 10px;
+  padding: 0px 10px
+}
+
+.folder-list {
+  list-style-type: none;
 }
 
 .folder {
