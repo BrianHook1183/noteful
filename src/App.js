@@ -88,6 +88,7 @@ class App extends React.Component {
         <div className='App'>
           <header>
             <h1><Link to='/'>Noteful</Link></h1>
+            <p>Accessibility branch</p>
             <Link to='/add-note' className='add-button'>+ note</Link>
           </header>
           <div className="container">
