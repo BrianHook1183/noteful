@@ -6,6 +6,9 @@ import PropTypes from 'prop-types';
 class Note extends React.Component {
   static defaultProps ={
     onDeleteNote: () => {},
+    id: "",
+    name: "",
+    modified: ""
   }
   static contextType = ApiContext;
 
@@ -51,7 +54,6 @@ class Note extends React.Component {
       </div>
      );
   }
-
 }
 
 Note.propTypes = {
