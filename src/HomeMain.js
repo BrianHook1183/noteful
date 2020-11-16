@@ -1,4 +1,4 @@
-import React from'react';
+import React from 'react';
 import ApiContext from './ApiContext';
 import Note from './Note';
 import ErrorBoundary from './ErrorBoundary';
@@ -17,14 +17,14 @@ class HomeMain extends React.Component {
             modified={note.modified}
           />
         </ErrorBoundary>
-      )
+      );
     });
-  return (
-    <>
-      {notes}
-    </>
+    return (
+      <>
+        {notes}
+      </>
     );
-  }
-}
+  };
+};
 
 export default HomeMain;
