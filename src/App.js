@@ -28,11 +28,11 @@ class App extends React.Component {
       })
       .then(response => response.json())
       .then(responseJson => {
-        this.setState({ folders: responseJson })
+        this.setState({ folders: responseJson });
       })
       .catch(error => {
         console.log(error);
-      })
+      });
 
     fetch('http://localhost:9090/notes')
       .then(response => {
@@ -44,12 +44,12 @@ class App extends React.Component {
       })
       .then(response => response.json())
       .then(responseJson => {
-        this.setState({ notes: responseJson })
+        this.setState({ notes: responseJson });
       })
       .catch(error => {
         console.log(error);
-      })
-  }
+      });
+  };
 
   handleDeleteNote = noteId => {
     this.setState({
@@ -63,8 +63,8 @@ class App extends React.Component {
         ...this.state.folders,
         folder
       ]
-    })
-  }
+    });
+  };
 
   handleAddNote = note => {
     this.setState({
@@ -72,8 +72,8 @@ class App extends React.Component {
         ...this.state.notes,
         note
       ]
-    })
-  }
+    });
+  };
 
   render() {
     const values = {
@@ -82,7 +82,7 @@ class App extends React.Component {
       addFolder: this.handleAddFolder,
       addNote: this.handleAddNote,
       deleteNote: this.handleDeleteNote,
-    }
+    };
     return (
       <ApiContext.Provider value={values}>
         <div className='App'>
@@ -109,7 +109,7 @@ class App extends React.Component {
         </div>
       </ApiContext.Provider>
     );
-  }
-}
+  };
+};
 
 export default App;
