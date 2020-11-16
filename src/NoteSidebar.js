@@ -9,15 +9,14 @@ class NoteSidebar extends React.Component {
     match: {
       params: {}
     }
-  }
+  };
   static contextType = ApiContext;
 
 
   render() {
-    
-    const findFolder = (folders=[], folderId) =>
+    const findFolder = (folders = [], folderId) =>
       folders.find(folder => folder.id === folderId);
-    const findNote = (notes=[], noteId) =>
+    const findNote = (notes = [], noteId) =>
       notes.find(note => note.id === noteId);
     const { notes, folders, } = this.context;
     const { noteId } = this.props.match.params;
@@ -33,7 +32,7 @@ class NoteSidebar extends React.Component {
         <h3>{folder?.name}</h3>
       </div>
     );
-  }
-}
+  };
+};
 
 export default NoteSidebar;
