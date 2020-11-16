@@ -1,4 +1,4 @@
-import React from'react';
+import React from 'react';
 import ApiContext from './ApiContext';
 import Note from './Note';
 import ErrorBoundary from './ErrorBoundary';
@@ -8,7 +8,7 @@ class FolderMain extends React.Component {
     match: {
       params: {}
     }
-  }
+  };
   static contextType = ApiContext;
 
   render() {
@@ -24,14 +24,14 @@ class FolderMain extends React.Component {
             modified={note.modified}
           />
         </ErrorBoundary>
-      )
+      );
     });
-  return (
-    <>
-      {notes}
-    </>
+    return (
+      <>
+        {notes}
+      </>
     );
-  }
-}
+  };
+};
 
 export default FolderMain;
