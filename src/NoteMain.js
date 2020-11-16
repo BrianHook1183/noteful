@@ -8,17 +8,17 @@ class NoteMain extends React.Component {
     match: {
       params: {}
     }
-  }
+  };
   static contextType = ApiContext;
 
   handleDeleteNote = noteId => {
-    this.props.history.push(`/`)
-  }
+    this.props.history.push(`/`);
+  };
 
   render() {
     const { noteId } = this.props.match.params;
-    const { notes=[] } = this.context;
-    const findNote = (notes=[], noteId) =>
+    const { notes = [] } = this.context;
+    const findNote = (notes = [], noteId) =>
       notes.find(note => note.id === noteId);
     const note = findNote(notes, noteId) || { content: '' };
     return (
@@ -36,7 +36,7 @@ class NoteMain extends React.Component {
         </div>
       </section>
     );
-  }
-}
+  };
+};
 
 export default NoteMain;
