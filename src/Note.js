@@ -4,17 +4,17 @@ import ApiContext from './ApiContext';
 import PropTypes from 'prop-types';
 
 class Note extends React.Component {
-  static defaultProps ={
-    onDeleteNote: () => {},
+  static defaultProps = {
+    onDeleteNote: () => { },
     id: "",
     name: "",
     modified: ""
-  }
+  };
   static contextType = ApiContext;
 
   handleDeleteClick = event => {
-    event.preventDefault()
-    const noteId = this.props.id; 
+    event.preventDefault();
+    const noteId = this.props.id;
     fetch(`http://localhost:9090/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
@@ -23,22 +23,22 @@ class Note extends React.Component {
     })
       .then(res => {
         if (!res.ok)
-          return res.json().then(event => Promise.reject(event))
-        return res.json()
+          return res.json().then(event => Promise.reject(event));
+        return res.json();
       })
       .then(() => {
-        this.context.deleteNote(noteId)
+        this.context.deleteNote(noteId);
         // allow parent to perform extra behaviour
-        this.props.onDeleteNote(noteId)
+        this.props.onDeleteNote(noteId);
       })
       .catch(error => {
-        console.error({ error })
-      })
-  }
+        console.error({ error });
+      });
+  };
 
-  render() { 
+  render() {
     const { name, id, modified } = this.props;
-    return ( 
+    return (
       <div className='Note'>
         <div className='Note-header'>
           <h2 className='Note-title'>
@@ -52,9 +52,9 @@ class Note extends React.Component {
           Modified {modified}
         </span>
       </div>
-     );
-  }
-}
+    );
+  };
+};
 
 Note.propTypes = {
   id: PropTypes.string.isRequired,
