@@ -11,21 +11,21 @@ class FolderSidebar extends React.Component {
         <NavLink to={`/folder/${folder.id}`} key={folder.id}>
           <li className="folder" key={folder.id}>{folder.name}</li>
         </NavLink>
-      )
+      );
     });
-  return (
-    <div className="ListSidebar">
-      <h2>Folders:</h2>
-      <ul className="folder-list">
-        {folders}
-      </ul>
-      <br />
-      <Link to='/add-folder' className='add-button'>
-        + folder
+    return (
+      <div className="ListSidebar">
+        <h2>Folders:</h2>
+        <ul className="folder-list">
+          {folders}
+        </ul>
+        <br />
+        <Link to='/add-folder' className='add-button'>
+          + folder
       </Link>
-    </div>
+      </div>
     );
-  }
-}
+  };
+};
 
 export default FolderSidebar;
