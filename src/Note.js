@@ -1,4 +1,5 @@
 import React from 'react';
+import config from './config';
 import { Link } from 'react-router-dom';
 import ApiContext from './ApiContext';
 import PropTypes from 'prop-types';
@@ -15,7 +16,7 @@ class Note extends React.Component {
   handleDeleteClick = event => {
     event.preventDefault();
     const noteId = this.props.id;
-    fetch(`http://localhost:9090/notes/${noteId}`, {
+    fetch(`${config.API_ENDPOINT}/notes/${noteId}`, {
       method: 'DELETE',
       headers: {
         'content-type': 'application/json'

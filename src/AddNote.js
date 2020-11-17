@@ -1,4 +1,5 @@
 import React from 'react';
+import config from './config';
 import ApiContext from './ApiContext';
 import ValidationError from './ValidationError';
 
@@ -70,7 +71,7 @@ export default class AddNote extends React.Component {
       folderId: this.state.noteFolderId.value,
       modified: new Date(),
     };
-    fetch(`http://localhost:9090/notes`, {
+    fetch(`${config.API_ENDPOINT}/notes`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

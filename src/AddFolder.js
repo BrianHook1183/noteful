@@ -1,4 +1,5 @@
 import React from 'react';
+import config from './config';
 import ApiContext from './ApiContext';
 import ValidationError from './ValidationError';
 
@@ -36,7 +37,7 @@ class AddFolder extends React.Component {
     const folder = {
       name: this.state.folderName
     };
-    fetch('http://localhost:9090/folders', {
+    fetch(`${config.API_ENDPOINT}/folders`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
