@@ -18,7 +18,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:9090/folders')
+    fetch('http://localhost:8000/api/folders')
       .then(response => {
         if (!response.ok) {
           console.log('An error did occur, let\'s throw an error.');
@@ -34,7 +34,7 @@ class App extends React.Component {
         console.log(error);
       });
 
-    fetch('http://localhost:9090/notes')
+    fetch('http://localhost:8000/api/notes')
       .then(response => {
         if (!response.ok) {
           console.log('An error did occur, let\'s throw an error.');
