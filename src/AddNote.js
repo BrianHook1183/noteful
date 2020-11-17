@@ -68,7 +68,7 @@ export default class AddNote extends React.Component {
     const newNote = {
       name: this.state.noteName.value,
       content: this.state.noteContent.value,
-      folderId: this.state.noteFolderId.value,
+      folder_id: this.state.noteFolderId.value,
       modified: new Date(),
     };
     fetch(`${config.API_ENDPOINT}/notes`, {
