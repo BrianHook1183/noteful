@@ -1,4 +1,5 @@
 import React from 'react';
+import config from './config';
 import { Route, Link } from 'react-router-dom';
 import HomeMain from './HomeMain';
 import FolderMain from './FolderMain';
@@ -18,7 +19,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    fetch('http://localhost:8000/api/folders')
+    fetch(`${config.API_ENDPOINT}/folders`)
       .then(response => {
         if (!response.ok) {
           console.log('An error did occur, let\'s throw an error.');
@@ -34,7 +35,7 @@ class App extends React.Component {
         console.log(error);
       });
 
-    fetch('http://localhost:8000/api/notes')
+    fetch(`${config.API_ENDPOINT}/notes`)
       .then(response => {
         if (!response.ok) {
           console.log('An error did occur, let\'s throw an error.');
