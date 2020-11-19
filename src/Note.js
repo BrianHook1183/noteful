@@ -24,10 +24,7 @@ class Note extends React.Component {
     })
       .then(res => {
         if (!res.ok)
-          return res.json().then(e => Promise.reject(e));
-        return res;
-      })
-      .then(() => {
+          throw new Error(`${res.status} ${res.statusText}`)
         this.context.deleteNote(noteId);
         // allow parent to perform extra behaviour
         this.props.onDeleteNote(noteId);
